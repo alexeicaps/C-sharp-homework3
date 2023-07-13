@@ -4,26 +4,64 @@
 // 12821 -> да
 // 23432 -> да
 
-int Prompt(string message) // Пишем передаваемое сообщение - запрашиваем у пользователя число - на выходе выдаем это число
+int Prompt(string message)
 {
     Console.Write(message);
     int num = int.Parse(Console.ReadLine()!);
     return num;
 }
 
-int quarter = Prompt("type quarter: ");
-GetQuarter(quarter);
 
-void GetQuarter(int num1)
+int number = Prompt("Введи пятизначное число: ");
+GetPolindrom(number);
+
+void GetPolindrom(int num)
 {
-    if (num1 < 1 || num1 > 4)
-        Console.Write("неверный формат данных");
-    if (num1 == 1) 
-        Console.Write("x > 0 && y > 0");
-    if (num1 == 2) 
-        Console.Write("x < 0 && y > 0");
-    if (num1 == 3) 
-        Console.Write("x < 0 && y < 0");
-    if (num1 == 4) 
-        Console.Write("x > 0 && y < 0");
+    if (num > 99999 || num < 10000)
+    {
+        Console.WriteLine("Это не пятизначное число!!!");
+    }
+    else
+    {
+        if (GetFirstDigit(num) == GetLastDigit(num))
+        {
+            if (GetSecondDigit(num) == GetFourthDigit(num))
+            {
+            Console.WriteLine(num + " -> " + "да");
+            }
+            else
+            {
+                Console.WriteLine(num + " -> " + "нет");
+            }
+        }
+        else
+        {
+            Console.WriteLine(num + " -> " + "нет");
+        }
+    }
 }
+
+int GetLastDigit(int numLast)
+{
+    return numLast % 10;
+}
+
+int GetFirstDigit(int num1)
+{
+    int a = num1 / 10000;
+    return a;
+}
+
+int GetSecondDigit(int num2)
+{
+    int a = num2 % 10000;
+    return a / 1000;
+}
+
+int GetFourthDigit(int num4)
+{
+    int b = num4 / 10;
+    return b % 10;
+}
+
+

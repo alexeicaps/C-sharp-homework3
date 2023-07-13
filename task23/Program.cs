@@ -17,12 +17,15 @@ void Cube(int num1)
     {
         if (count == num1)
         {
-            Console.Write(count*count);
+            Console.Write(count*count*count);
         }
+        else
+        {
+            Console.Write(count*count*count + ", ");
+        }
+        count++;
     }
-    count++;
 }
-
 
 
 int n = Prompt("введите число: ");
