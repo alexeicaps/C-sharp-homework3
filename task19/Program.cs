@@ -4,23 +4,26 @@
 // 12821 -> да
 // 23432 -> да
 
-GetSquare();
-
-void GetSquare()
+int Prompt(string message) // Пишем передаваемое сообщение - запрашиваем у пользователя число - на выходе выдаем это число
 {
-        Console.Write("x1 - ");
-        int x1 = int.Parse(Console.ReadLine());
+    Console.Write(message);
+    int num = int.Parse(Console.ReadLine()!);
+    return num;
+}
 
-        Console.Write("y1 - ");
-        int y1 = int.Parse(Console.ReadLine());
+int quarter = Prompt("type quarter: ");
+GetQuarter(quarter);
 
-        Console.Write("x2 - ");
-        int x2 = int.Parse(Console.ReadLine());
-
-        Console.Write("y2 - ");
-        int y2 = int.Parse(Console.ReadLine());
-
-        double a = Math.Sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
-
-        Console.WriteLine(Math.Round(a,2));
+void GetQuarter(int num1)
+{
+    if (num1 < 1 || num1 > 4)
+        Console.Write("неверный формат данных");
+    if (num1 == 1) 
+        Console.Write("x > 0 && y > 0");
+    if (num1 == 2) 
+        Console.Write("x < 0 && y > 0");
+    if (num1 == 3) 
+        Console.Write("x < 0 && y < 0");
+    if (num1 == 4) 
+        Console.Write("x > 0 && y < 0");
 }

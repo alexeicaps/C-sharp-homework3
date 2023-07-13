@@ -4,14 +4,14 @@
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 
 
-int Prompt(string message)
+int Prompt(string message) // Пишем передаваемое сообщение - запрашиваем у пользователя число - на выходе выдаем это число
 {
-    Console.Write(message + " ");
+    Console.Write(message);
     int num = int.Parse(Console.ReadLine()!);
     return num;
 }
 
-double Distance(int a, int b, int c, int d, int e, int f)
+double Distance(int a, int b, int c, int d, int e, int f) // считаем расстояние на оси координат между двумя точками и на выходе выдаем это расстояние
 {
     double dist = Math.Sqrt((a - d)*(a - d) + (b - e)*(b - e) + (c - f)*(c - f));
     return dist;
